@@ -10,7 +10,7 @@ void Timer_Init(void) {
 }
 
 void Timer_StartOneShot(uint32_t ms) {
-    uint32_t load = (uint64_t)ms * (SYS_CLOCK / 1000) - 1;  // Use uint64_t to avoid overflow
+    uint32_t load = (uint64_t)ms * 120000UL - 1;  // 120 MHz
 
     GPTM_TIMER3[GPTM_CTL] = 0;                       // Disable
     GPTM_TIMER3[GPTM_CFG] = GPTM_CFG_32BITTIMER;
