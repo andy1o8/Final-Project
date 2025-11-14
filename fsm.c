@@ -34,7 +34,6 @@ void FSM_Init(void) {
 }
 
 void FSM_Run(void) {
-    /* ------------------- KEYPAD INPUT (only in IDLE) ------------------- */
     if (lock_state == STATE_IDLE && digits_entered < 4) {
         uint8_t col, row;
         if (debouncing) {
@@ -68,7 +67,6 @@ void FSM_Run(void) {
         }
     }
 
-    /* -------------------------- FSM -------------------------- */
     switch (lock_state) {
 
         case STATE_IDLE:
